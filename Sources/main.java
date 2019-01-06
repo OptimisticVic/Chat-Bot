@@ -23,7 +23,7 @@ public class main {
         Scanner userInput = new Scanner(System.in);
         if (type == "string") {
             System.out.print("[" + getTime() + "]" + " [User] >> ");
-            String input = userInput.next();
+            String input = userInput.nextLine();
             return input;
         } else {
             System.out.print("[" + getTime() + "]" + " [System] >> Syntax Error: main.getInput(input) Invalid argument passes into [input]");
@@ -32,8 +32,6 @@ public class main {
     }
     
     public static void processInput(String input) {
-        general general = new general();
-
         String processedInput = input.toLowerCase();
 
         if (processedInput.equals("hello")) {
@@ -41,8 +39,12 @@ public class main {
         } else if (processedInput.equals("bye")) {
             general.dismissed();
             System.exit(0);
+        } else if (processedInput.startsWith("what is")) {
+            what.Exception(input, 1);
+        } else if (processedInput.startsWith("what's")) {
+            what.Exception(input, 2);
         } else {
-            general.Exception(processedInput);
+            general.Exception(input);
         }
     }
 
@@ -86,6 +88,13 @@ class general {
         System.out.println("[" + main.getTime()  + "] [BOT ] >> Goodbye!");
     }
     public static void Exception(String input) {
-        System.out.println("[" + main.getTime()  + "] [BOT ] >> Sorry, I do not understand what you mean by '" + input + "'.");
+        System.out.println("[" + main.getTime()  + "] [BOT ] >> Sorry, I do not understand what you mean by '" + input + "'. Could you please rephrase that?");
     }
+}
+
+class what {
+    public static void Exception(String input, int type) {
+        if (type == 1) System.out.println("[" + main.getTime()  + "] [BOT ] >> Sorry, I do not know what '" + input.substring(8) + "' is. Could you please rephrase that?");
+        if (type == 2) System.out.println("[" + main.getTime()  + "] [BOT ] >> Sorry, I do not know what '" + input.substring(7) + "' is. Could you please rephrase that?");
+    } 
 }
