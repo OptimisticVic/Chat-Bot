@@ -1,3 +1,5 @@
+//General purpose chat bot by mxtt-mmxix
+
 import java.util.Scanner;
 import java.util.Calendar;
 import java.util.Locale;
@@ -33,20 +35,47 @@ public class main {
     
     public static void processInput(String input) {
         String processedInput = input.toLowerCase();
-
-        if (processedInput.equals("hello")) {
-            general.helloResponse();
-        } else if (processedInput.equals("bye")) {
-            general.dismissed();
-            System.exit(0);
-        } else if (processedInput.startsWith("what is")) {
-            what.Exception(input, 1);
-        } else if (processedInput.startsWith("what's")) {
-            what.Exception(input, 2);
-        } else {
-            general.Exception(input);
-        }
-    }
+        
+        switch (processedInput) {
+            case "hello": general.helloResponse();
+                break;
+            case "hi": general.helloResponse();
+                break;
+            case "hey": general.helloResponse();
+                break;
+            case "hello!": general.helloResponse();
+                break;
+            case "hi!": general.helloResponse();
+                break;
+            case "hey!": general.helloResponse();
+                break;
+            case "bye": 
+                general.dismissed();
+                System.exit(0);
+                break;
+            case "goodbye": 
+                general.dismissed();
+                System.exit(0);
+                break;
+            case "bye!": 
+                general.dismissed();
+                System.exit(0);
+                break;
+            case "goodbye!": 
+                general.dismissed();
+                System.exit(0);
+                break;
+            default: 
+                if (processedInput.startsWith("what is")) {
+                    what.Exception(input, 1);
+                } else if (processedInput.startsWith("what's")) {
+                    what.Exception(input, 2);
+                } else {
+                    general.Exception(input);
+                }
+                break;
+            }
+        } 
 
     public static String getTime() {
         Locale local = Locale.US;
@@ -83,6 +112,9 @@ public class main {
 class general { 
     public static void helloResponse() {
         System.out.println("[" + main.getTime()  + "] [BOT ] >> Hello, user.");
+    }
+    public static void whatsUpResponse() {
+        System.out.println("[" + main.getTime()  + "] [BOT ] >> The sky is up.");
     }
     public static void dismissed() {
         System.out.println("[" + main.getTime()  + "] [BOT ] >> Goodbye!");
