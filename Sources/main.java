@@ -70,6 +70,8 @@ public class main {
                     what.Exception(input, 1);
                 } else if (processedInput.startsWith("what's")) {
                     what.Exception(input, 2);
+                } else if (processedInput.startsWith("whats")) {
+                    what.Exception(input, 3);
                 } else {
                     general.Exception(input);
                 }
@@ -128,5 +130,6 @@ class what {
     public static void Exception(String input, int type) {
         if (type == 1) System.out.println("[" + main.getTime()  + "] [BOT ] >> Sorry, I do not know what '" + input.substring(8) + "' is. Could you please rephrase that?");
         if (type == 2) System.out.println("[" + main.getTime()  + "] [BOT ] >> Sorry, I do not know what '" + input.substring(7) + "' is. Could you please rephrase that?");
+        if (type == 3) System.out.println("[" + main.getTime()  + "] [BOT ] >> Sorry, I do not know what '" + input.substring(6) + "' is. Could you please rephrase that?");
     } 
 }
