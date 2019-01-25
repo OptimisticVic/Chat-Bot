@@ -15,11 +15,12 @@ import javax.speech.synthesis.Synthesizer;
 import javax.speech.synthesis.SynthesizerModeDesc;
 import javax.speech.synthesis.Voice;
 
-
 public class main {
     public static void main(String[] args) {
+        
         SpeechUtils su = new SpeechUtils();
         System.out.println("\n");
+
         print("Welcome to Chat Bot Alpha v0.01");
 
         while (true) {
