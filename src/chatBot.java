@@ -15,9 +15,9 @@ import javax.speech.synthesis.Synthesizer;
 import javax.speech.synthesis.SynthesizerModeDesc;
 import javax.speech.synthesis.Voice;
 
-public class main {
+public class chatBot {
     public static void main(String[] args) {
-        
+
         SpeechUtils su = new SpeechUtils();
         System.out.println("\n");
 
