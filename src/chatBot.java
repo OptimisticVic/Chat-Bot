@@ -29,7 +29,7 @@ public class chatBot {
         }
     }
   
-   //Functionality for TTS begins here. HAS NOT BEEN TESTED!
+   //Functionality for TTS begins here.
    
   SynthesizerModeDesc desc;
   Synthesizer synthesizer;
