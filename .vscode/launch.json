@@ -2,6 +2,18 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - chat",
+            "request": "launch",
+            "mainClass": "chat"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - main",
+            "request": "launch",
+            "mainClass": "main"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - chatBot",
             "request": "launch",
             "mainClass": "chatBot"
