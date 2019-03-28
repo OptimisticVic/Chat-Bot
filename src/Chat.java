@@ -1,6 +1,11 @@
 import java.util.Scanner;
 
-public class Chat {	 
+public class Chat {
+	static Scanner scanner = new Scanner(System.in);
+
+	public static void output(String param) { //Allows for easier implementation of TTS.
+		System.out.println(param);
+	}
 	 
 	public static void getAcademicInfo() {
 	 	String[] computerResponses = {
@@ -40,24 +45,25 @@ public class Chat {
 	 	String[][] coursesInfoSenior = {
 	 		{"Pre-Calculus, ", "Pre-Calculus Honors, ", "AP Statistics, ", "Trigonometry, ", "Trigonometry Honors, ", "Calculus Honors, ", "AP Caluculus AB, ", "AP Calculus BC. ", " "},
 	 		{"English 7, ", "Media, ", "Journalism, ", "Yearbook, ", "English 7 Honors,", "Public Speaking,", "Play Production.", " ", " ", " "},
-	 		{"Physics, ", "Earth Science, ", "Astromony, ", "Anatomy adn Physiology, ", "Environmental Science,", "AP Biology, ", "AP Chemistry, ", "AP Physics, ", "AP Psycology, ", "AP Environment Science."},
+	 		{"Physics, ", "Earth Science, ", "Astromony, ", "Anatomy and Physicology, ", "Environmental Science,", "AP Biology, ", "AP Chemistry, ", "AP Physics, ", "AP Psycology, ", "AP Environment Science."},
 	 		{"Chinese IV, ", "French IV, ", "Spanish IV, ", "German IV, ", "AP Spanish, ", " ", "Criminology. ", " ", " ", " "}
 	 	};
 	 	
-	 	Scanner scanner = new Scanner(System.in);
+	 	String rawInput = scanner.nextLine();
 		String input = "";
 	 	
 	 	int subject = 0;
 	 	
 	 	for (int i = 0; i < 7; i++) {
-			System.out.println(computerResponses[i]);
+			output(computerResponses[i]);
 			int looped = 0;
 			
 			switch (i) {
 				
 				case 0: 
 				
-					input = scanner.nextLine();
+					rawInput = scanner.nextLine();
+					input = rawInput.toLowerCase();
 				
 					if (input.indexOf("math") >= 0 || input.indexOf("algebra") >= 0 || input.indexOf("trigonometry") >= 0 || input.indexOf("geometry") >= 0) {
 	 					subject = 0;
@@ -74,30 +80,30 @@ public class Chat {
 				 
 				 case 2:
 				 	for (int j = 0; j < 4; j++) { 
-	 					System.out.print(coursesInfoFreshman[subject][j]);
+						output(coursesInfoFreshman[subject][j]);
 	 				}
-	 				System.out.println("");
+	 				output("");
 	 			 break;
 	 			 
 	 			 case 3:
 				 	for (int j = 0; j < 8; j++) { 
-	 					System.out.print(coursesInfoSophomore[subject][j]);
+						output(coursesInfoSophomore[subject][j]);
 	 				}
-	 				System.out.println("");
+	 				output("");
 	 			 break;
 	 			 
 	 			 case 4:
 				 	for (int j = 0; j < 9; j++) { 
-	 					System.out.print(coursesInfoJunior[subject][j]);
+						output(coursesInfoJunior[subject][j]);
 	 				}
-	 				System.out.println("");
+	 				output("");
 	 			 break;
 	 			 
 	 			 case 5:
 				 	for (int j = 0; j < 8; j++) { 
-	 					System.out.print(coursesInfoSenior[subject][j]);
+						output(coursesInfoSenior[subject][j]);
 	 				}
-	 				System.out.println("");
+	 				output("");
 	 			 break;
 	 			 
 	 			 case 6:
@@ -132,21 +138,21 @@ public class Chat {
 	 		}
 	 		
 	 		if (input.indexOf("repeat") >= 0) {
-	 			System.out.println("Sure thing!");
-	 			i--;
+				output("Sure thing!");
+				i--;
 			}
 			
-			if (input.indexOf("freshmen") >= 0) {
-				System.out.println("No problem!");
+			if (input.indexOf("freshmen") >= 0 || input.indexOf("freshman") >= 0) {
+				output("No problem!");
 				i = 1;
 			} else if (input.indexOf("sophomores") >= 0) {
-				System.out.println("No problem!");
+				output("No problem!");
 				i = 2;
 			}  else if (input.indexOf("juniors") >= 0) {
-				System.out.println("No problem!");
+				output("No problem!");
 				i = 3;
 			}  else if (input.indexOf("seniors") >= 0) {
-				System.out.println("No problem!");
+				output("No problem!");
 				i = 4;
 			}
 			
@@ -166,15 +172,11 @@ public class Chat {
 			
 			input = "";
 		}
-
-		scanner.close();
-
 	}
 	 	 
 	public static void main (String[] args) {
-	 	System.out.println("Welcome to the Cardozo ChatBot! I hope to answer all of your questions related to our school!");
+		output("Welcome to the Cardozo chat bot! We hope to answer all you questions about the school.");
 		getAcademicInfo();
 		//getSportsInfo();
-	} 
-	 
+	}  
 }
